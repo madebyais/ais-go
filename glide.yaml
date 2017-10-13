@@ -1,0 +1,13 @@
+package: github.com/ais-go
+import:
+- package: gopkg.in/mgo.v2
+- package: github.com/labstack/echo
+  version: ~3.2.3
+  subpackages:
+  - '...'
+- package: github.com/labstack/gommon
+  version: ~0.2.3
+  subpackages:
+  - color
+- package: github.com/go-redis/redis
+  version: ~6.7.1
