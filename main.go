@@ -1,12 +1,12 @@
 package main
 
 import (
-	"github.com/ais-go/adapter"
-	"github.com/ais-go/controller"
-	"github.com/ais-go/entity"
-	"github.com/ais-go/infrastructure/database"
-	"github.com/ais-go/infrastructure/gateway"
-	"github.com/ais-go/infrastructure/repository"
+	"github.com/madebyais/ais-go/adapter"
+	"github.com/madebyais/ais-go/controller"
+	"github.com/madebyais/ais-go/entity"
+	"github.com/madebyais/ais-go/infrastructure/database"
+	"github.com/madebyais/ais-go/infrastructure/gateway"
+	"github.com/madebyais/ais-go/infrastructure/repository"
 )
 
 func main() {

@@ -1,6 +1,6 @@
 package adapter
 
-import "github.com/ais-go/entity"
+import "github.com/madebyais/ais-go/entity"
 
 // Schema for adapter
 type Schema struct {

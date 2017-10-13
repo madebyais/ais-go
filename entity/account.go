@@ -1,6 +1,6 @@
 package entity
 
-import "github.com/ais-go/infrastructure/database"
+import "github.com/madebyais/ais-go/infrastructure/database"
 
 type (
 	// Account entity

@@ -3,8 +3,8 @@ package controller
 import (
 	"net/http"
 
-	"github.com/ais-go/adapter"
 	"github.com/labstack/echo"
+	"github.com/madebyais/ais-go/adapter"
 )
 
 type (
