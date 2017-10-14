@@ -3,7 +3,7 @@ AIS-GO
 
 AIS-GO is a very simple boilerplate to create a web service based on MEGo (Mongodb Echo Golang) stack.
 
-The structure is inspired by Uncle's Bob clean architecture. However, I've made a couple of changes to enable developer read and use this boilerplate more easily.
+The structure is inspired by Uncle's Bob clean architecture. However, I've made a couple of changes to enable developer to read and use this boilerplate, and get started more easily.
 
 ### HOW-TO
 
