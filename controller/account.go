@@ -34,5 +34,6 @@ func (a *Account) GetAccount(ctx echo.Context) error {
 	if err != nil {
 		return err
 	}
+
 	return ctx.JSON(http.StatusOK, data)
 }
