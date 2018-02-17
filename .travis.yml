@@ -5,10 +5,10 @@ dist: trusty
 services:
   - mongodb
 
-before_install:
-  - sudo add-apt-repository ppa:masterminds/glide
-  - sudo apt-get update 
-  - sudo apt-get install -y glide
+# before_install:
+#   - sudo add-apt-repository ppa:masterminds/glide
+#   - sudo apt-get update 
+#   - sudo apt-get install -y glide
 
 # INSTALL GO
 
@@ -19,7 +19,8 @@ go:
   - master
 
 install:
-  - glide install
+  # - glide install
+  - sh install-dep.sh
 
 script:
   # DRIVERS
