@@ -18,7 +18,6 @@ go:
 
 install:
   - glide install
-  # - sh install-dep.sh
 
 script:
   # DRIVERS
