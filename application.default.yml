@@ -1,0 +1,8 @@
+database_mongodb_enable: false
+database_mongodb_url: mongodb://localhost:27017/ais_go
+
+database_postgresql_enable: false
+database_postgresql_url: host=localhost port=5432 user=ais dbname=ais_go password=go
+
+database_mysql_enable: false
+database_mysql_url: root:toor@localhost:3306/ais_go?charset=utf8&parseTime=True&loc=Local

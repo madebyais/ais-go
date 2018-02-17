@@ -1,0 +1,25 @@
+dist: trusty
+
+# INSTALL MONGO
+
+services:
+  - mongodb
+
+before_install:
+  - sudo add-apt-repository ppa:masterminds/glide && sudo apt-get update -y
+  - sudo apt-get install -y glide
+
+# INSTALL GO
+
+language: go
+
+go:
+  - 1.8
+  - master
+
+install:
+  - glide install
+
+script:
+  # DRIVERS
+  - go test ./drivers/database -v -cover

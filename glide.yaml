@@ -1,13 +1,19 @@
-package: github.com/ais-go
+package: .
 import:
+- package: gopkg.in/yaml.v2
 - package: gopkg.in/mgo.v2
-- package: github.com/labstack/echo
-  version: ~3.2.3
+- package: github.com/jinzhu/gorm
+  version: v1.0
   subpackages:
-  - '...'
-- package: github.com/labstack/gommon
-  version: ~0.2.3
+  - dialects/postgres
+  - dialects/mysql
+- package: github.com/stretchr/testify
+  version: v1.2.1
   subpackages:
-  - color
-- package: github.com/go-redis/redis
-  version: ~6.7.1
+  - assert
+- package: github.com/jinzhu/inflection
+- package: github.com/go-sql-driver/mysql
+  version: v1.3
+- package: github.com/lib/pq
+  subpackages:
+  - hstore
