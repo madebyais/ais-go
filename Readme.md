@@ -1,6 +1,7 @@
 AIS-GO
 --------
 [![Build Status](https://api.travis-ci.org/madebyais/ais-go.svg?branch=master)](https://travis-ci.org/madebyais/ais-go)
+[![codecov](https://codecov.io/gh/madebyais/ais-go/branch/master/graph/badge.svg)](https://codecov.io/gh/madebyais/ais-go)
 
 AIS-GO is a very simple boilerplate to create a web service based on MEGo (Mongodb Echo Golang) stack.
 
