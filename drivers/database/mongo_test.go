@@ -31,7 +31,9 @@ func TestInitMongo(t *testing.T) {
 
 func TestMongoDial(t *testing.T) {
 	mongo, _ := mongoDial()
+	mongo.SetCollection(`user`)
 	assert.Equal(t, nil, mongo.Session.Ping())
+	assert.Equal(t, `user`, mongo.CollName)
 }
 
 func TestMongoDialError(t *testing.T) {
@@ -64,11 +66,32 @@ func TestMongoFindOne(t *testing.T) {
 	assert.NotEmpty(t, data)
 }
 
+func TestMongoFindOneWithFields(t *testing.T) {
+	mongo, _ := mongoDial()
+	query := map[string]interface{}{"name": "ais"}
+	fields := map[string]interface{}{"name": 1}
+
+	data, err := mongo.FindOne(query, fields)
+	assert.Equal(t, nil, err)
+	assert.NotEmpty(t, data)
+}
+
 func TestMongoFindAll(t *testing.T) {
 	mongo, _ := mongoDial()
 	query := map[string]interface{}{"name": "ais"}
 
 	data, err := mongo.FindAll(query)
+	assert.Equal(t, nil, err)
+	assert.NotNil(t, data)
+	assert.NotEqual(t, 0, len(data))
+}
+
+func TestMongoFindAllWithFields(t *testing.T) {
+	mongo, _ := mongoDial()
+	query := map[string]interface{}{"name": "ais"}
+	fields := map[string]interface{}{"name": 1}
+
+	data, err := mongo.FindAll(query, fields)
 	assert.Equal(t, nil, err)
 	assert.NotNil(t, data)
 	assert.NotEqual(t, 0, len(data))
