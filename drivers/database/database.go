@@ -3,9 +3,11 @@ package database
 // DBInterface is an interface for database drivers
 // using CRUSH (CREATE, READ, UPDATE, SOFT DEL, HARD DEL) methodology
 type DBInterface interface {
+	SetCollection(name string)
+
 	FindOne(query interface{}, fields ...interface{}) (interface{}, error)
 	FindAll(query interface{}, fields ...interface{}) ([]interface{}, error)
-	Insert(params interface{}) (interface{}, error)
+	Insert(params ...interface{}) (interface{}, error)
 	Update(query interface{}, params interface{}, multi bool) (interface{}, error)
 	Delete(query interface{}, hide bool) error
 

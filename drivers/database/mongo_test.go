@@ -13,7 +13,7 @@ var UUID2 string = "2f387a74-9d1f-4738-9ac2-89c8c3469a93"
 func mongoDial() (database.Mongo, error) {
 	m := database.Mongo{
 		URL:      "localhost:27017",
-		DBName:   "ais_go_TestMongo",
+		DBName:   "ais_go_test",
 		CollName: "sample",
 	}
 	return m.Dial()
@@ -22,11 +22,11 @@ func mongoDial() (database.Mongo, error) {
 func TestInitMongo(t *testing.T) {
 	m := &database.Mongo{
 		URL:      "localhost:27017",
-		DBName:   "ais_go_TestMongo",
+		DBName:   "ais_go_test",
 		CollName: "sample",
 	}
 
-	assert.Equal(t, "ais_go_TestMongo", m.DBName)
+	assert.Equal(t, "ais_go_test", m.DBName)
 }
 
 func TestMongoDial(t *testing.T) {
@@ -37,7 +37,7 @@ func TestMongoDial(t *testing.T) {
 func TestMongoDialError(t *testing.T) {
 	m := database.Mongo{
 		URL:      "localhost:27018",
-		DBName:   "ais_go_TestMongo",
+		DBName:   "ais_go_test",
 		CollName: "sample",
 	}
 

@@ -1,5 +1,5 @@
-hash: 14f65bf7227b66cb1d94cbcc2b1973f9e71bd25fd81ed25f50be0d20801d6970
-updated: 2018-02-16T20:53:08.503502+07:00
+hash: 6e90e912997c256279b9ebaeb6e7267086639f622d44b056725af7182f5dc1e8
+updated: 2018-02-17T14:42:11.677342+07:00
 imports:
 - name: github.com/go-sql-driver/mysql
   version: a0583e0143b1624142adab07e0e97fe106d99561
@@ -10,11 +10,14 @@ imports:
   - dialects/postgres
 - name: github.com/jinzhu/inflection
   version: 1c35d901db3da928c72a72d8458480cc9ade058f
+- name: github.com/labstack/echo
+  version: b338075a0fc6e1a0683dbf03d09b4957a289e26f
+  subpackages:
+  - '...'
 - name: github.com/lib/pq
   version: ae8357db35d721c58dcdc911318b55bef6b1b001
   subpackages:
   - hstore
-  - oid
 - name: github.com/stretchr/testify
   version: 12b6f73e6084dad08a7c6e575284b177ecafbc71
   subpackages:

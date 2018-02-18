@@ -17,3 +17,7 @@ import:
 - package: github.com/lib/pq
   subpackages:
   - hstore
+- package: github.com/labstack/echo
+  version: 3.2.6
+  subpackages:
+  - '...'

@@ -27,7 +27,12 @@ func (m *Mongo) Dial() (Mongo, error) {
 	return *m, nil
 }
 
-func (m *Mongo) getCollection() *mgo.Collection {
+// SetCollection is used to set collection that want to be used
+func (m *Mongo) SetCollection(coll string) {
+	m.CollName = coll
+}
+
+func (m *Mongo) getSession() *mgo.Collection {
 	m.tempSession = m.Session.Clone()
 	return m.tempSession.DB(m.DBName).C(m.CollName)
 }
@@ -36,7 +41,7 @@ func (m *Mongo) getCollection() *mgo.Collection {
 func (m *Mongo) FindOne(query interface{}, fields ...interface{}) (interface{}, error) {
 	var result map[string]interface{}
 
-	exec := m.getCollection().Find(query)
+	exec := m.getSession().Find(query)
 	if len(fields) > 0 {
 		exec = exec.Select(fields[0])
 	}
@@ -51,7 +56,7 @@ func (m *Mongo) FindOne(query interface{}, fields ...interface{}) (interface{}, 
 func (m *Mongo) FindAll(query interface{}, fields ...interface{}) ([]interface{}, error) {
 	var result []interface{}
 
-	exec := m.getCollection().Find(query)
+	exec := m.getSession().Find(query)
 	if len(fields) > 0 {
 		exec = exec.Select(fields[0])
 	}
@@ -63,7 +68,7 @@ func (m *Mongo) FindAll(query interface{}, fields ...interface{}) ([]interface{}
 
 // Insert is used to insert a record
 func (m *Mongo) Insert(params ...interface{}) (interface{}, error) {
-	err := m.getCollection().Insert(params...)
+	err := m.getSession().Insert(params...)
 	defer m.tempSession.Close()
 	return params, err
 }
@@ -73,12 +78,12 @@ func (m *Mongo) Update(query interface{}, params interface{}, multi bool) (inter
 	opts := map[string]interface{}{"$set": params}
 
 	if multi {
-		_, err := m.getCollection().UpdateAll(query, opts)
+		_, err := m.getSession().UpdateAll(query, opts)
 		defer m.tempSession.Close()
 		return nil, err
 	}
 
-	err := m.getCollection().Update(query, opts)
+	err := m.getSession().Update(query, opts)
 	defer m.tempSession.Close()
 	return nil, err
 }
@@ -89,12 +94,12 @@ func (m *Mongo) Delete(query interface{}, hide bool) error {
 	if hide {
 		params := make(map[string]interface{})
 		params["deleted_at"] = time.Now()
-		_, err := m.getCollection().UpdateAll(query, map[string]interface{}{"$set": params})
+		_, err := m.getSession().UpdateAll(query, map[string]interface{}{"$set": params})
 		defer m.tempSession.Close()
 		return err
 	}
 
-	_, err := m.getCollection().RemoveAll(query)
+	_, err := m.getSession().RemoveAll(query)
 	defer m.tempSession.Close()
 	return err
 }
