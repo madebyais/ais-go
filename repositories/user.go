@@ -1,8 +1,6 @@
 package repositories
 
 import (
-	"errors"
-
 	"github.com/madebyais/ais-go/drivers/database"
 )
 
@@ -26,13 +24,7 @@ func (*User) New(db database.DBInterface) UserInterface {
 
 // Create is used to create new user
 func (u *User) Create(params interface{}) (interface{}, error) {
-	opts := params.(map[string]interface{})
-
-	if _, isExist := opts["fullname"]; !isExist {
-		return nil, errors.New(`Fullname is required`)
-	}
-
-	data, err := u.DB.Insert(opts)
+	data, err := u.DB.Insert(params)
 	return data, err
 }
 

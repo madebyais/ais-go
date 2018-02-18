@@ -25,16 +25,6 @@ func initUserRepo() repositories.UserInterface {
 	return new(repositories.User).New(dbi)
 }
 
-func TestUserRepoCreateFailedIfFullnameNotProvided(t *testing.T) {
-	userRepo := initUserRepo()
-
-	params := map[string]interface{}{"uuid": "uuid"}
-
-	d, e := userRepo.Create(params)
-	assert.NotNil(t, e)
-	assert.Nil(t, d)
-}
-
 func TestUserRepoCreateSuccess(t *testing.T) {
 	userRepo := initUserRepo()
 
