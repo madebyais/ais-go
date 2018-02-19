@@ -17,6 +17,8 @@ type UserInterface interface {
 
 // New is used to initliaze user repository
 func (*User) New(db database.DBInterface) UserInterface {
+	db.SetCollection(`user`)
+
 	return &User{
 		DB: db,
 	}
