@@ -2,6 +2,11 @@ AIS-GO
 --------
 [![Build Status](https://api.travis-ci.org/madebyais/ais-go.svg?branch=master)](https://travis-ci.org/madebyais/ais-go)
 [![codecov](https://codecov.io/gh/madebyais/ais-go/branch/master/graph/badge.svg)](https://codecov.io/gh/madebyais/ais-go)
+[![Go Report Card](https://goreportcard.com/badge/github.com/madebyais/ais-go)](https://goreportcard.com/report/github.com/madebyais/ais-go)
+
+CURRENT UPDATES: 
+This boilerplate is working well. 
+However, I still looking about why the test coverage return 0%. 
 
 AIS-GO is a very simple boilerplate to create a web service based on MEGo (Mongodb Echo Golang) stack.
 
