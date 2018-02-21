@@ -8,4 +8,5 @@ go get -u -v github.com/stretchr/testify/assert &&
 go get -u -v github.com/jinzhu/inflection &&
 go get -u -v github.com/go-sql-driver/mysql &&
 go get -u -v github.com/lib/pq &&
-go get -u -v github.com/lib/pq/hstore
+go get -u -v github.com/lib/pq/hstore &&
+go get -u -v github.com/labstack/echo/...
