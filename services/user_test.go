@@ -1,15 +1,14 @@
-package services_test
+package services
 
 import (
 	"testing"
 
 	"github.com/madebyais/ais-go/drivers/database"
 	"github.com/madebyais/ais-go/repositories"
-	"github.com/madebyais/ais-go/services"
 	"github.com/stretchr/testify/assert"
 )
 
-func initUserService() services.UserInterface {
+func initUserService() UserInterface {
 	dbm := &database.Mongo{
 		URL:      `localhost:27017`,
 		DBName:   `ais_test_go`,
@@ -24,7 +23,7 @@ func initUserService() services.UserInterface {
 	var dbi database.DBInterface = &mongo
 	userRepo := new(repositories.User).New(dbi)
 
-	userService := &services.User{
+	userService := &User{
 		UserRepository: userRepo,
 	}
 

@@ -1,17 +1,16 @@
-package database_test
+package database
 
 import (
 	"testing"
 
-	"github.com/madebyais/ais-go/drivers/database"
 	"github.com/stretchr/testify/assert"
 )
 
 var UUID1 string = "5953802f-ca4a-4c71-bccd-24c50202212c"
 var UUID2 string = "2f387a74-9d1f-4738-9ac2-89c8c3469a93"
 
-func mongoDial() (database.Mongo, error) {
-	m := database.Mongo{
+func mongoDial() (Mongo, error) {
+	m := Mongo{
 		URL:      "localhost:27017",
 		DBName:   "ais_go_test",
 		CollName: "sample",
@@ -20,7 +19,7 @@ func mongoDial() (database.Mongo, error) {
 }
 
 func TestInitMongo(t *testing.T) {
-	m := &database.Mongo{
+	m := &Mongo{
 		URL:      "localhost:27017",
 		DBName:   "ais_go_test",
 		CollName: "sample",
@@ -37,7 +36,7 @@ func TestMongoDial(t *testing.T) {
 }
 
 func TestMongoDialError(t *testing.T) {
-	m := database.Mongo{
+	m := Mongo{
 		URL:      "localhost:27018",
 		DBName:   "ais_go_test",
 		CollName: "sample",

@@ -1,14 +1,13 @@
-package repositories_test
+package repositories
 
 import (
 	"testing"
 
 	"github.com/madebyais/ais-go/drivers/database"
-	"github.com/madebyais/ais-go/repositories"
 	"github.com/stretchr/testify/assert"
 )
 
-func initUserRepo() repositories.UserInterface {
+func initUserRepo() UserInterface {
 	dbm := &database.Mongo{
 		URL:      `localhost:27017`,
 		DBName:   `ais_test_go`,
@@ -22,7 +21,7 @@ func initUserRepo() repositories.UserInterface {
 
 	var dbi database.DBInterface = &mongo
 
-	return new(repositories.User).New(dbi)
+	return new(User).New(dbi)
 }
 
 func TestUserRepoCreateSuccess(t *testing.T) {
